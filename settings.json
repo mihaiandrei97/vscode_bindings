@@ -1,0 +1,87 @@
+{
+  "editor.fontFamily": "Cascadia Code, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.lineHeight": 2,
+  "editor.minimap.enabled": false,
+  "editor.lineNumbers": "relative",
+  "editor.suggest.insertMode": "replace",
+  "editor.linkedEditing": true,
+  "editor.cursorSurroundingLines": 10,
+  "workbench.sideBar.location": "right",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "Syntax FM",
+  "workbench.activityBar.location": "top",
+  "explorer.compactFolders": false,
+  "breadcrumbs.enabled": false,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "window.commandCenter": false,
+  "svelte.enable-ts-plugin": true,
+  "vim.easymotion": true,
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+  "vim.useCtrlKeys": true,
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // NAVIGATION
+    // switch b/w buffers
+    { "before": ["<S-h>"], "commands": [":bprevious"] },
+    { "before": ["<S-l>"], "commands": [":bnext"] },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    // splits
+    { "before": ["leader", "v"], "commands": [":vsplit"] },
+    { "before": ["leader", "s"], "commands": [":split"] },
+     // panes
+     {
+      "before": ["leader", "h"],
+      "commands": ["workbench.action.focusLeftGroup"]
+    },
+    {
+      "before": ["leader", "j"],
+      "commands": ["workbench.action.focusBelowGroup"]
+    },
+    {
+      "before": ["leader", "k"],
+      "commands": ["workbench.action.focusAboveGroup"]
+    },
+    {
+      "before": ["leader", "l"],
+      "commands": ["workbench.action.focusRightGroup"]
+    },
+    // Nice have
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"]
+    },
+     {
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.next"]
+    },
+  ],
+  "vim.visualModeKeyBindings": [
+    // Stay in visual mode while indenting
+    { "before": ["<"], "commands": ["editor.action.outdentLines"] },
+    { "before": [">"], "commands": ["editor.action.indentLines"] },
+    // Move selected lines while staying in visual mode
+    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+    // toggle comment selection
+    { "before": ["leader", "c"], "commands": ["editor.action.commentLine"] }
+  ]
+}
