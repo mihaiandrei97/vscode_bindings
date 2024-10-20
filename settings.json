@@ -18,6 +18,8 @@
   "svelte.enable-ts-plugin": true,
   "vim.easymotion": true,
   "vim.useSystemClipboard": true,
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.duration": 250,
   "vim.hlsearch": true,
   "vim.useCtrlKeys": true,
   "vim.leader": "<space>",
