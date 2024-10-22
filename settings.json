@@ -33,6 +33,19 @@
       "after": ["<Esc>"]
     }
   ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "p",
+            ],
+            "after": [
+                "p",
+                "g",
+                "v",
+                "y"
+            ]
+        }
+    ],
   "vim.normalModeKeyBindingsNonRecursive": [
     // NAVIGATION
     // switch b/w buffers
@@ -42,9 +55,15 @@
       "before": ["<C-n>"],
       "commands": [":nohl"]
     },
+    {
+      "before": ["K"],
+      "commands": ["lineBreakInsert"],
+      "silent": true
+    },
     // splits
     { "before": ["leader", "v"], "commands": [":vsplit"] },
     { "before": ["leader", "s"], "commands": [":split"] },
+    { "before": ["leader", "e"], "commands": ["workbench.explorer.fileView.focus"]},
      // panes
      {
       "before": ["leader", "h"],
