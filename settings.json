@@ -48,6 +48,14 @@
     ],
   "vim.normalModeKeyBindingsNonRecursive": [
     // NAVIGATION
+    {
+      "before": ["<C-u>"],
+      "after": ["2", "0", "k", "z", "z"]
+    },
+    {
+      "before": ["<C-d>"],
+      "after": ["2", "0", "j", "z", "z"]
+    },
     // switch b/w buffers
     { "before": ["<S-h>"], "commands": [":bprevious"] },
     { "before": ["<S-l>"], "commands": [":bnext"] },
