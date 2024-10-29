@@ -1,7 +1,8 @@
 {
-  "editor.fontFamily": "Cascadia Code, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "'Zed Plex Mono', 'Jetbrains Mono', 'Dank Mono', 'Monaspace Neon', Cascadia Code, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.lineHeight": 2,
+  "editor.fontSize": 15,
   "editor.minimap.enabled": false,
   "editor.lineNumbers": "relative",
   "editor.suggest.insertMode": "replace",
@@ -9,7 +10,7 @@
   "editor.cursorSurroundingLines": 10,
   "workbench.sideBar.location": "right",
   "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "Syntax FM",
+  "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.activityBar.location": "top",
   "explorer.compactFolders": false,
   "breadcrumbs.enabled": false,
@@ -112,5 +113,15 @@
     { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
     // toggle comment selection
     { "before": ["leader", "c"], "commands": ["editor.action.commentLine"] }
-  ]
+  ],
+  // "workbench.colorCustomizations": {
+  //   "[Night Owl]": {
+  //     "statusBar.foreground": "#ccc",
+  //     "panel.background": "#002",
+  //     "sideBar.background": "#001",
+  //     "editor.background": "#001",
+  //     "peekViewEditor.background": "#000",
+  //     "editorGutter.background": "#000"
+  //   }
+  // }
 }
