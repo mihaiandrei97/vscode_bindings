@@ -1,7 +1,8 @@
 {
   "editor.fontFamily": "'Zed Plex Mono', 'Jetbrains Mono', 'Dank Mono', 'Monaspace Neon', Cascadia Code, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
-  "editor.lineHeight": 2,
+  // "editor.lineHeight": 2,
+  "editor.lineHeight": 1.618,
   "editor.fontSize": 15,
   "editor.minimap.enabled": false,
   "editor.lineNumbers": "relative",
@@ -114,6 +115,7 @@
     // toggle comment selection
     { "before": ["leader", "c"], "commands": ["editor.action.commentLine"] }
   ],
+  "workbench.editor.showTabs": "single",
   // "workbench.colorCustomizations": {
   //   "[Night Owl]": {
   //     "statusBar.foreground": "#ccc",
