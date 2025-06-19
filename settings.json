@@ -1,23 +1,33 @@
 {
-  "editor.fontFamily": "'Zed Plex Mono', 'Jetbrains Mono', 'Dank Mono', 'Monaspace Neon', Cascadia Code, Menlo, Monaco, 'Courier New', monospace",
+  // UI STUFF
+  "editor.fontFamily": "'Dank Mono', 'JetBrains Mono', 'Zed Plex Mono', 'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
-  // "editor.lineHeight": 2,
-  "editor.lineHeight": 1.618,
+  "editor.lineHeight": 2,
+  // "editor.fontSize": 13,
   "editor.fontSize": 15,
   "editor.minimap.enabled": false,
   "editor.lineNumbers": "relative",
   "editor.suggest.insertMode": "replace",
   "editor.linkedEditing": true,
   "editor.cursorSurroundingLines": 10,
-  "workbench.sideBar.location": "right",
-  "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "Catppuccin Mocha",
-  "workbench.activityBar.location": "top",
-  "explorer.compactFolders": false,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.overviewRulerBorder": false,
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.guides.indentation": false,
+  "editor.formatOnSave": true,
+  "editor.glyphMargin": false,
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "breadcrumbs.enabled": false,
-  "github.copilot.editor.enableAutoCompletions": true,
+  "workbench.activityBar.location": "top",
+  "workbench.sideBar.location": "right",
+  "workbench.tree.renderIndentGuides": "none",
+  "window.title": " ",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "Catppuccin Frappé",
+  "explorer.compactFolders": false,
   "window.commandCenter": false,
-  "svelte.enable-ts-plugin": true,
+  // VIM Stuff
   "vim.easymotion": true,
   "vim.useSystemClipboard": true,
   "vim.highlightedyank.enable": true,
@@ -25,6 +35,10 @@
   "vim.hlsearch": true,
   "vim.useCtrlKeys": true,
   "vim.leader": "<space>",
+  // To improve performance
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-f>": false
@@ -35,21 +49,28 @@
       "after": ["<Esc>"]
     }
   ],
+  // keep register after paste
   "vim.visualModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "p",
-            ],
-            "after": [
-                "p",
-                "g",
-                "v",
-                "y"
-            ]
-        }
-    ],
+    {
+      "before": ["p"],
+      "after": ["p", "g", "v", "y"]
+    }
+  ],
   "vim.normalModeKeyBindingsNonRecursive": [
-    // NAVIGATION
+    // bookmarks
+    {
+      "before": ["leader", "m"],
+      "commands": ["bookmarks.toggle"]
+    },
+    {
+      "before": ["leader", "b"],
+      "commands": ["bookmarks.listFromAllFiles"]
+    },
+    // navigation
+    {
+      "before": ["s"],
+      "after": ["<leader>", "<leader>", "2", "s"]
+    },
     {
       "before": ["<C-u>"],
       "after": ["2", "0", "k", "z", "z"]
@@ -59,8 +80,14 @@
       "after": ["2", "0", "j", "z", "z"]
     },
     // switch b/w buffers
-    { "before": ["<S-h>"], "commands": [":bprevious"] },
-    { "before": ["<S-l>"], "commands": [":bnext"] },
+    {
+      "before": ["<S-h>"],
+      "commands": [":bprevious"]
+    },
+    {
+      "before": ["<S-l>"],
+      "commands": [":bnext"]
+    },
     {
       "before": ["<C-n>"],
       "commands": [":nohl"]
@@ -71,11 +98,20 @@
       "silent": true
     },
     // splits
-    { "before": ["leader", "v"], "commands": [":vsplit"] },
-    { "before": ["leader", "s"], "commands": [":split"] },
-    { "before": ["leader", "e"], "commands": ["workbench.explorer.fileView.focus"]},
-     // panes
-     {
+    {
+      "before": ["leader", "v"],
+      "commands": [":vsplit"]
+    },
+    {
+      "before": ["leader", "s"],
+      "commands": [":split"]
+    },
+    {
+      "before": ["leader", "e"],
+      "commands": ["workbench.explorer.fileView.focus"]
+    },
+    // panes
+    {
       "before": ["leader", "h"],
       "commands": ["workbench.action.focusLeftGroup"]
     },
@@ -91,12 +127,12 @@
       "before": ["leader", "l"],
       "commands": ["workbench.action.focusRightGroup"]
     },
-    // Nice have
+    // actions
     {
       "before": ["<leader>", "c", "a"],
       "commands": ["editor.action.quickFix"]
     },
-     {
+    {
       "before": ["[", "d"],
       "commands": ["editor.action.marker.prev"]
     },
@@ -104,18 +140,87 @@
       "before": ["]", "d"],
       "commands": ["editor.action.marker.next"]
     },
+    {
+      "before": ["leader", "p"],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.quickOpen"
+        }
+      ]
+    },
+    {
+      "before": ["leader", "o"],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.quickOpen"
+        }
+      ]
+    }
   ],
   "vim.visualModeKeyBindings": [
     // Stay in visual mode while indenting
-    { "before": ["<"], "commands": ["editor.action.outdentLines"] },
-    { "before": [">"], "commands": ["editor.action.indentLines"] },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
     // Move selected lines while staying in visual mode
-    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
-    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+    {
+      "before": ["J"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    },
     // toggle comment selection
-    { "before": ["leader", "c"], "commands": ["editor.action.commentLine"] }
+    {
+      "before": ["leader", "c"],
+      "commands": ["editor.action.commentLine"]
+    }
   ],
-  "workbench.editor.showTabs": "single",
+  // other settings
+  "css.enabledLanguages": ["html", "js"],
+  "npm.packageManager": "npm",
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/dist/*": true,
+    "**/.git": true,
+    "**/tmp": true
+  },
+  // Extensions
+  "projectManager.sortList": "Recent",
+  "cucumber.glue": [
+    "*specs*/**/*.cs",
+    "features/**/*.js",
+    "features/**/*.jsx",
+    "features/**/*.php",
+    "features/**/*.py",
+    "features/**/*.rs",
+    "features/**/*.rb",
+    "features/**/*.ts",
+    "features/**/*.tsx",
+    "features/**/*_test.go",
+    "src/test/**/*.java",
+    "tests/**/*.py",
+    "tests/**/*.rs",
+    "test/e2e/steps/*.js"
+  ],
+  "gopls": {
+    "ui.semanticTokens": true
+  },
+  "svelte.enable-ts-plugin": true,
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "chat.agent.enabled": true,
+  "update.mode": "none",
   // "workbench.colorCustomizations": {
   //   "[Night Owl]": {
   //     "statusBar.foreground": "#ccc",
